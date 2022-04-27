@@ -10,10 +10,6 @@
     export default {
         computed: {
             ...mapGetters(['formatCnt'])
-            
-            // formatCnt() {
-            //     return this.$store.getters.formatCnt // store getters의 값을 가져왔다.
-            // }
         },
     }
 </script>
