@@ -1,6 +1,7 @@
 <template>
     <div id="panel">
-        현재 카운터의 값 : {{formatCnt}}
+        <p>현재 카운터의 값 : {{formatCnt}}</p>
+        <p>현재 사용자의 이름 : {{name}}</p>
     </div>
 </template>
 
@@ -9,7 +10,8 @@
 
     export default {
         computed: {
-            ...mapGetters(['formatCnt'])
+            ...mapGetters(['formatCnt']),
+            ...mapGetters('auth' , ['name'])
         },
     }
 </script>
