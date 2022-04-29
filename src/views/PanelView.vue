@@ -13,9 +13,3 @@
         },
     }
 </script>
-
-<style>
-    #panel {
-        margin-bottom: 20px;
-    }
-</style>
