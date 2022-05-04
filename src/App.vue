@@ -9,6 +9,7 @@
       <router-link to="/axios">axios</router-link> |
       <router-link to="/sign-up">signUp</router-link> |
       <router-link to="/login">login</router-link> |
+      <router-link to="/delete-user">delete-user</router-link> 
     </nav>
     <router-view/>
   </div>
