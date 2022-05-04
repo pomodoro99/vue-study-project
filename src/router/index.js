@@ -1,6 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import AsyncExView from '../views/AsyncExView.vue'
+import SyncExView from '../views/SyncExView.vue'
+import HomeView from '../views/HomeView.vue';
+import PromiseView from '../views/PromiseView.vue';
+import AsyncAwaitView from '../views/AsyncAwaitView.vue';
+import AxiosView from '../views/AxiosView.vue';
+import SignUpView from '../views/SignUpView.vue';
+import LoginView from '../views/LoginView.vue';
 
 Vue.use(VueRouter)
 
@@ -11,13 +18,40 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    path: '/sync',
+    name: 'syncEx',
+    component: SyncExView
+  },
+  {
+    path: '/async',
+    name: 'asyncEx',
+    component : AsyncExView
+  },
+  {
+    path: '/async-await',
+    name: 'async-await',
+    component : AsyncAwaitView
+  },
+  {
+    path: '/promise',
+    name: 'promise',
+    component : PromiseView
+  },
+  {
+    path: '/axios',
+    name: 'axios',
+    component : AxiosView
+  },
+  {
+    path: '/sign-up',
+    name: 'sign-up',
+    component : SignUpView
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component : LoginView
+  },
 ]
 
 const router = new VueRouter({
