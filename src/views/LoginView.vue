@@ -10,8 +10,11 @@
 
 <script>
     import axios from "axios"
+    // import mixins from "@/mixins";
 
     export default {
+
+        // mixins : [mixins],
 
         data : () => ({
             id : '',
@@ -20,16 +23,28 @@
         }),
 
         methods : {
-            login(){
-                axios.post('https://api.devcury.kr/auth/user', {
+            async login(){
+
+                const response = await this.$api('https://api.devcury.kr/auth/user', 'POST', {
                     id : this.id,
                     pwd : this.pwd
-                }).then(response => {
+                });
+
+                if(response.status === 200){
                     this.token = response.data.token;
                     alert('토큰 발급 성공');
-                }).catch(error => {
-                    alert(error.response.data.error);
-                });
+                }
+
+                // 바꾸기 전 소스
+                // axios.post('https://api.devcury.kr/auth/user', {
+                //     id : this.id,
+                //     pwd : this.pwd
+                // }).then(response => {
+                //     this.token = response.data.token;
+                //     alert('토큰 발급 성공');
+                // }).catch(error => {
+                //     alert(error.response.data.error);
+                // });
             }
         }
     }
