@@ -1,28 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ModalVue :on="true">
+      <template v-slot:title>slot 활용 제목입니다.</template>
+      <template #sub-title>부제목입니다.</template>
+      <template>
+        <div> 
+          <span>이름을 입력하세요 : </span><input type="text">
+        </div>
+      </template>
+    </ModalVue>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ModalVue from "./components/Modal.vue"
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    ModalVue
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
