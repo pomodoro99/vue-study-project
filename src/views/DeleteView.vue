@@ -1,15 +1,12 @@
 <template>
   <div>
-    <p>로그인</p>
-    <p>ID : <input
+    <p>회원삭제</p>
+    <p>토큰 : <input
         type="text"
-        v-model="id"
+        v-model="token"
       ></p>
-    <p>PW : <input
-        type="password"
-        v-model="pwd"
-      ></p>
-    <button @click="login">로그인하여 토큰 발급</button>
+
+    <button @click="delUser">회원삭제</button>
     {{token}}
   </div>
 </template>
@@ -24,15 +21,20 @@ export default {
     token: ''
   }),
   methods: {
-    login () {
-      axios.post('https://api.devcury.kr/auth/user', {
-        id: this.id,
-        pwd: this.pwd,
+    delUser () {
+      if (!confirm("정말 삭제하시겠습니까?")) {
+        return false;
+      }
+
+      axios.delete('https://api.devcury.kr/api/auth/user', {
+        headers: {
+          Authorization: `Bearer ${this.token}`
+        }
       }).then(response => {
         //console.log(response.data)
         if (response.status === 200) {
-          alert('로그인 성공');
-          this.token = response.data.token;
+          alert('삭제 성공');
+
         }
       }).catch(error => {
         alert(error.response.data.error);

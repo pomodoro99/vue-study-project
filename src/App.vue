@@ -9,8 +9,9 @@
       <router-link to="/axios">axios</router-link> |
       <router-link to="/sign-up">signUp</router-link> |
       <router-link to="/login">login</router-link> |
+      <router-link to="/delete">deleteUser</router-link> |
     </nav>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 

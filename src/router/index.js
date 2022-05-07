@@ -8,6 +8,7 @@ import AsyncAwaitView from '../views/AsyncAwaitView.vue';
 import AxiosView from '../views/AxiosView.vue';
 import SignUpView from '../views/SignUpView.vue';
 import LoginView from '../views/LoginView.vue';
+import DeleteView from '../views/DeleteView.vue';
 
 Vue.use(VueRouter)
 
@@ -25,32 +26,37 @@ const routes = [
   {
     path: '/async',
     name: 'asyncEx',
-    component : AsyncExView
+    component: AsyncExView
   },
   {
     path: '/async-await',
     name: 'async-await',
-    component : AsyncAwaitView
+    component: AsyncAwaitView
   },
   {
     path: '/promise',
     name: 'promise',
-    component : PromiseView
+    component: PromiseView
   },
   {
     path: '/axios',
     name: 'axios',
-    component : AxiosView
+    component: AxiosView
   },
   {
     path: '/sign-up',
     name: 'sign-up',
-    component : SignUpView
+    component: SignUpView
   },
   {
     path: '/login',
     name: 'login',
-    component : LoginView
+    component: LoginView
+  },
+  {
+    path: '/delete',
+    name: 'delete',
+    component: DeleteView
   },
 ]
 
