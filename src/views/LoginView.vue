@@ -10,6 +10,7 @@
 
 <script>
     import axios from "axios"
+    import { mapActions } from "vuex";
 
     export default {
 
@@ -20,16 +21,30 @@
         }),
 
         methods : {
-            login(){
-                axios.post('https://api.devcury.kr/auth/user', {
-                    id : this.id,
-                    pwd : this.pwd
-                }).then(response => {
-                    this.token = response.data.token;
-                    alert('토큰 발급 성공');
-                }).catch(error => {
-                    alert(error.response.data.error);
-                });
+
+            ...mapActions(['setToken']),
+
+            async login(){
+
+                try {
+                    const response = await axios.post('https://api.devcury.kr/auth/user', {
+                        id : this.id,
+                        pwd : this.pwd
+                    });
+                    this.setToken(response.data.token);
+                    alert('토큰 발급 성공');    
+                } catch (error) {
+                    console.error(error);
+                }
+                // axios.post('https://api.devcury.kr/auth/user', {
+                //     id : this.id,
+                //     pwd : this.pwd
+                // }).then(response => {
+                //     this.token = response.data.token;
+                //     alert('토큰 발급 성공');
+                // }).catch(error => {
+                //     alert(error.response.data.error);
+                // });
             }
         }
     }

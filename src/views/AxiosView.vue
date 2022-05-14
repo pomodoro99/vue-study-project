@@ -74,28 +74,57 @@
                 }
             },
 
-            callWebDoc() {
-                axios.get(`https://dapi.kakao.com/v2/search/web?query=${this.search}&page=1&size=10&sort=recency`,{
-                    headers: {
-                        Authorization: `KakaoAK ${process.env.VUE_APP_KAKAO_KEY}`
-                    }
-                }).then(response=>{
+            async callWebDoc() {
+
+                try {
+                    const response = await axios.get(`https://dapi.kakao.com/v2/search/web?query=${this.search}&page=1&size=10&sort=recency`,{
+                                                        headers: {
+                                                            Authorization: `KakaoAK ${process.env.VUE_APP_KAKAO_KEY}`
+                                                        }
+                                                    });
+                    
                     this.list = response.data.documents;
-                }).catch(error=>{
+                } catch (error) {
                     console.error(error);
-                });
+                }
+
+
+                //기존 코드
+                // axios.get(`https://dapi.kakao.com/v2/search/web?query=${this.search}&page=1&size=10&sort=recency`,{
+                //     headers: {
+                //         Authorization: `KakaoAK ${process.env.VUE_APP_KAKAO_KEY}`
+                //     }
+                // }).then(response=>{
+                //     this.list = response.data.documents;
+                // }).catch(error=>{
+                //     console.error(error);
+                // });
             },
 
-            callImg() {
-                axios.get(`https://dapi.kakao.com/v2/search/image?query=${this.search}&page=1&size=10&sort=recency`,{
-                    headers: {
-                        Authorization: `KakaoAK ${process.env.VUE_APP_KAKAO_KEY}`
-                    }
-                }).then(response=>{
+            async callImg() {
+
+                try {
+                    const response = await axios.get(`https://dapi.kakao.com/v2/search/image?query=${this.search}&page=1&size=10&sort=recency`,{
+                                    headers: {
+                                        Authorization: `KakaoAK ${process.env.VUE_APP_KAKAO_KEY}`
+                                    }
+                                });
+
                     this.list = response.data.documents;
-                }).catch(error=>{
+                } catch (error) {
                     console.error(error);
-                });
+                }
+
+
+                // axios.get(`https://dapi.kakao.com/v2/search/image?query=${this.search}&page=1&size=10&sort=recency`,{
+                //     headers: {
+                //         Authorization: `KakaoAK ${process.env.VUE_APP_KAKAO_KEY}`
+                //     }
+                // }).then(response=>{
+                //     this.list = response.data.documents;
+                // }).catch(error=>{
+                //     console.error(error);
+                // });
             }
 
 

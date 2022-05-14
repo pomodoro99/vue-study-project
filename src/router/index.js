@@ -9,6 +9,7 @@ import AxiosView from '../views/AxiosView.vue';
 import SignUpView from '../views/SignUpView.vue';
 import LoginView from '../views/LoginView.vue';
 import DeleteUserView from '../views/DeleteUserView.vue';
+import UserInfoView from '../views/UserInfoView.vue';
 
 Vue.use(VueRouter)
 
@@ -57,6 +58,11 @@ const routes = [
     path: '/delete-user',
     name: 'delete-user',
     component : DeleteUserView
+  },
+  {
+    path: '/user-info',
+    name: 'user-info',
+    component : UserInfoView
   },
 ]
 
